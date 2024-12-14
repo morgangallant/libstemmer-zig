@@ -14,7 +14,7 @@ Then, add it to your `build.zig`:
 
 ```zig
 const libstemmer = b.dependency("libstemmer", .{ .target = target, .optimize = optimize });
-exe.addModule("libstemmer", libstemmer.module("libstemmer"));
+exe.root_module.addImport("libstemmer", libstemmer.module("libstemmer"));
 ```
 
 ### Usage
@@ -37,7 +37,7 @@ try std.testing.expectEqualSlices(u8, "run", output);
 
 ### License
 
-Snowball is released under a 3-clause BSD license. The full license text is below, for reference.
+This wrapper is released under the MIT license. The Snowball project itself is released under a 3-clause BSD license. The full license text is below, for reference.
 
 ```
 Copyright (c) 2001, Dr Martin Porter,
